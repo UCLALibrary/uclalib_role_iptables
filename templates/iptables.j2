@@ -7,7 +7,7 @@
 -A INPUT -s 164.67.153.224/32 -p tcp -m state --state NEW -m tcp --dport 5666 -j ACCEPT
 -A INPUT -i lo -j ACCEPT
 -A INPUT -s 164.67.153.0/24 -p tcp -m state --state NEW -m tcp --dport 22 -j ACCEPT
-{% for rule in allowed_input_rules %}
+{% for rule in allowed_iptables_input_rules %}
 -A INPUT -s {{ rule.src_ip }} -p {{ rule.protocol }} -m state --state NEW -m {{ rule.protocol }} --dport {{ rule.dest_port }} -j ACCEPT
 {% endfor %}
 -A INPUT -p icmp --icmp-type echo-request -j DROP
