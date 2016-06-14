@@ -11,3 +11,16 @@
 #  - src_ip: 10.0.0.2
 #    dest_port: 53
 #    protocol: udp
+
+# This is an alternative varilable for configuring iptables rulesets
+# You might use this when configuring rulesets as one-offs
+#iptables_alt_allowed_input_rules:
+#  - src_ip: 0.0.0.0
+#    dest_port: 80
+#    protocol: tcp
+#  - src_ip: 10.0.0.1
+#    dest_port: 443
+#    protocol: tcp
+#  - src_ip: 10.0.0.2
+#    dest_port: 53
+#    protocol: udp
