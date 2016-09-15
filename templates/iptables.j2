@@ -8,9 +8,11 @@
 -A INPUT -s 164.67.153.224/32 -p tcp -m state --state NEW -m tcp --dport 5666 -j ACCEPT
 -A INPUT -s 164.67.153.0/24 -p tcp -m state --state NEW -m tcp --dport 22 -j ACCEPT
 {# use iptables_allowed_input_rules as primary variable for setting iptables input rules #}
+{% if iptables_allowed_input_rules is defined %}
 {% for rule in iptables_allowed_input_rules %}
 -A INPUT -s {{ rule.src_ip }} -p {{ rule.protocol }} -m state --state NEW -m multiport -m {{ rule.protocol }} --dports {{ rule.dest_port }} -j ACCEPT
 {% endfor %}
+{% endif %}
 {# use iptables_alt_allowed_input_rules as secondary variable for setting iptables input rules as one-offs for whatever reason #}
 {% if iptables_alt_allowed_input_rules is defined %}
 {% for rule_alt in iptables_alt_allowed_input_rules %}
