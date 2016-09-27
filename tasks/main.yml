@@ -1,7 +1,7 @@
 ---
 
 - name: Ensure iptables is installed
-  yum: pkg=iptables state=installed
+  yum: name=iptables state=installed
 
 - name: Put in place iptables configuration file from the template
   template: src=iptables.j2 dest=/etc/sysconfig/iptables owner=root group=root mode=600
