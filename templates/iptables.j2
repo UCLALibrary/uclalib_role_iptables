@@ -4,9 +4,20 @@
 :OUTPUT ACCEPT [0:0]
 -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 -A INPUT -i lo -j ACCEPT
+########################### Nagios Rules ###############################
 -A INPUT -s 164.67.153.224/32 -p icmp --icmp-type echo-request -j ACCEPT
 -A INPUT -s 164.67.153.224/32 -p tcp -m state --state NEW -m tcp --dport 5666 -j ACCEPT
+########################################################################
+
+########################### JUMP server ################################
 -A INPUT -s 164.67.153.0/24 -p tcp -m state --state NEW -m tcp --dport 22 -j ACCEPT
+########################################################################
+
+########################### Allow backend haproxy ################################
+-A INPUT -s 172.16.36.11 -j ACCEPT
+-A INPUT -s 172.16.36.12 -j ACCEPT
+##################################################################################
+
 {# use iptables_allowed_input_rules as primary variable for setting iptables input rules #}
 {% if iptables_allowed_input_rules is defined %}
 {% for rule in iptables_allowed_input_rules %}
