@@ -1,4 +1,4 @@
-# UCLALib Ansible Role: IPTables
+# UCLALib Ansible Role: IPTables [![Build Status](https://travis-ci.org/UCLALibrary/uclalib_role_iptables.svg?branch=master)](https://travis-ci.org/UCLALibrary/uclalib_role_iptables)
 
 Configures iptables using the Library's template on RHEL servers
 
@@ -43,3 +43,8 @@ Example:
     - { role: uclalib_role_application}
     - { role: uclalib_role_iptables }
 ```
+
+License
+-------
+
+BSD 3-Clause
