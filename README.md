@@ -44,7 +44,7 @@ Example:
     - { role: uclalib_role_iptables }
 ```
 
-> License
-> -------
->
-> BSD 3-Clause
+License
+-------
+
+BSD 3-Clause
